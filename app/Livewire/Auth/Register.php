@@ -27,7 +27,7 @@ class Register extends Component
             'email' => $this->email,
             'password' => Hash::make($this->password),
         ]);
-        session()->flash('success', 'Registration successful. You can now log in.');
+        session()->flash('success', 'Registration successful. You can now login.');
         return redirect()->route('login');
     }
 
