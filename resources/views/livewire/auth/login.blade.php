@@ -20,5 +20,5 @@
         </div>
     @endif
     <a href="{{ route('register') }}">Register</a>
-
+    <button class="btn btn-primary">بوت استرپ کار می‌کند!</button>
 </div>

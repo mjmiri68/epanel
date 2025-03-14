@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Welcome</title>
-</head>
-<body>
-    <h1>Welcome to My Dashboard</h1>
+@extends('layouts.panel')
+@section('content')
     <livewire:auth.login />
-</body>
-</html>
