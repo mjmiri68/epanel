@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "@popperjs/core": "^2.11.8",
+        "@rollup/rollup-linux-x64-gnu": "^4.35.0",
         "@tailwindcss/vite": "^4.0.14",
         "bootstrap": "^5.3.3"
     }

@@ -9,7 +9,7 @@
     <meta name="author" content="Sheikh Heera" />
     <link rel="shortcut icon" href={{ asset('favicon.png') }} />
 
-    <title>MiriPanel</title>
+    <title>{{$page_title ?? 'Miri Panel'}}</title>
     @vite('resources/css/app.css')
     @fluxAppearance
     <link rel="preconnect" href="https://fonts.bunny.net">
