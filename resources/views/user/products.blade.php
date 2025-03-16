@@ -1,4 +1,4 @@
 @extends('layouts.panel')
 @section('content')
-    <livewire:user.product />
+<livewire:products-table class="bg-red-800 text-white"/>
 @stop

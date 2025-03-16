@@ -5,6 +5,6 @@
     <livewire:auth.register />
     <div class="mt-20 text-gray-600 dark:text-gray-400">
         You have an account yet?
-        <a class="font-medium text-indigo-600 underline" href="{{ route('login') }}">Login</a>
+        <a class="font-medium text-indigo-600 underline" href="{{ route('login') }}" wire:navigate>Login</a>
     </div>
 @stop

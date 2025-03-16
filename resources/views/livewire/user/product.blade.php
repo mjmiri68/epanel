@@ -8,25 +8,26 @@
             {{ session('error') }}
         </div>
     @endif
-    <table>
+    <table class="table-fixed">
         <thead>
             <tr>
-                <th>Product Name</th>
+                <th>Name</th>
                 <th>Category</th>
                 <th>Price</th>
                 <th>Quantity</th>
-                <th>Action</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach ($products as $product)
-                <tr>
+                <tr :key="{{$product->id}}">
                     <td>{{ $product->name }}</td>
                     <td>{{ $product->category->name }}</td>
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->quantity }}</td>
                     <td>
-                        <button wire:click="addToCart({{ $product->id }})">Add to Cart</button>
+                        <flux:button variant="ghost" size="sm" icon="ellipsis-horizontal" inset="top bottom"
+                            wire:click="addToCart({{ $product->id }})">Add to Cart</flux:button>
                     </td>
                 </tr>
             @endforeach

@@ -2,6 +2,8 @@
 
 namespace App\Livewire\User;
 
+use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Livewire\Component;
 
 class Product extends Component
@@ -12,4 +14,5 @@ class Product extends Component
         $page_title = 'Products';
         return view('livewire.user.product', compact('products', 'page_title'));
     }
+    
 }
