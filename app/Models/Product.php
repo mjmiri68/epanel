@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'slug', 'description', 'price', 'category_id', 'created_by', 'updated_by'];
+    protected $fillable = ['name', 'slug', 'description', 'price', 'category_id', 'created_by'];
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -16,9 +16,5 @@ class Product extends Model
     public function createdBy()
     {
         return $this->belongsTo(User::class, 'created_by');
-    }
-    public function updatedBy()
-    {
-        return $this->belongsTo(User::class, 'updated_by');
     }
 }

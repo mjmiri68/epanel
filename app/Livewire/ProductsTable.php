@@ -28,19 +28,13 @@ class ProductsTable extends DataTableComponent
             Column::make('Price', 'price')
                 ->sortable(),
 
-            Column::make('Quantity', 'quantity')
+            Column::make('Quantity', 'stock')
                 ->sortable(),
-
-            Column::make('Actions')
-                ->format(function($value, $row, Column $column) {
-                    return view('components.add-to-cart', ['product' => $row]);
-                }),
         ];
     }
 
     public function addToCart($productId)
     {
-        // اینجا لاجیک اضافه کردن به سبد خرید را پیاده‌سازی کن
         session()->push('cart', $productId);
         $this->dispatchBrowserEvent('cart-updated');
     }

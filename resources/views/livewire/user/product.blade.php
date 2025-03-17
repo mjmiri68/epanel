@@ -24,7 +24,7 @@
                     <td>{{ $product->name }}</td>
                     <td>{{ $product->category->name }}</td>
                     <td>{{ $product->price }}</td>
-                    <td>{{ $product->quantity }}</td>
+                    <td>{{ $product->stock }}</td>
                     <td>
                         <flux:button variant="ghost" size="sm" icon="ellipsis-horizontal" inset="top bottom"
                             wire:click="addToCart({{ $product->id }})">Add to Cart</flux:button>
