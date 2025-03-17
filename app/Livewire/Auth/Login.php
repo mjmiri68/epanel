@@ -3,6 +3,7 @@
 namespace App\Livewire\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class Login extends Component
 {
@@ -17,7 +18,12 @@ class Login extends Component
         ]);
 
         if (auth()->attempt(['email' => $this->email, 'password' => $this->password])) {
-            return $this->redirect('/dashboard', navigate: true);
+            $user = Auth::user();
+            if ($user->is_admin) {
+                return $this->redirect('/admin/dashboard', navigate: true);
+            } else {
+                return $this->redirect('/dashboard', navigate: true);
+            }
         } else {
             session()->flash('error', 'Invalid credentials');
         }

@@ -27,8 +27,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/checkout', function () {return view('checkout');})->name('checkout');
     Route::get('/order-confirmation', function () {return view('order-confirmation');})->name('order-confirmation');
     Route::get('/dashboard', function () {return view('user.dashboard');})->name('dashboard');
+});
 
-    // Admin routes
+// Admin
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/categories', function () {return view('admin.categories');})->name('admin.categories');
     Route::get('/admin/dashboard', function () {return view('admin.dashboard');})->name('admin.dashboard');
     Route::get('/admin/products', function () {return view('admin.products');})->name('admin.products');
     Route::get('/admin/product/create', function () {return view('admin.product-create');})->name('admin.product.create');

@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400,500,600&display=swap" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @livewireStyles
 </head>
 <body class="min-h-screen bg-white dark:bg-zinc-800">
     <flux:sidebar sticky stashable class="bg-zinc-50 dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-700">
@@ -25,8 +26,10 @@
         <flux:input as="button" variant="filled" placeholder="Search..." icon="magnifying-glass" />
 
         <flux:navlist variant="outline">
-            <flux:navlist.item icon="home" href="{{ url('dashboard') }}" wire:navigate current wire:current="font-bold text-zinc-800">Home</flux:navlist.item>
-            <flux:navlist.item icon="inbox" badge="12" href="{{ url('products') }}" wire:navigate wire:current="font-bold text-zinc-800">Products</flux:navlist.item>
+            <flux:navlist.item icon="home" href="{{ url('admin/dashboard') }}" wire:navigate current wire:current="font-bold text-zinc-800">Home</flux:navlist.item>
+            <flux:navlist.item icon="inbox" badge="12" href="{{ url('admin/users') }}" wire:navigate wire:current="font-bold text-zinc-800">User</flux:navlist.item>
+            <flux:navlist.item icon="inbox" badge="12" href="{{ url('admin/categories') }}" wire:navigate wire:current="font-bold text-zinc-800">Categories</flux:navlist.item>
+            <flux:navlist.item icon="inbox" badge="12" href="{{ url('admin/products') }}" wire:navigate wire:current="font-bold text-zinc-800">Products</flux:navlist.item>
 
             <flux:navlist.group expandable heading="Favorites" class="hidden lg:grid">
                 <flux:navlist.item href="#">Marketing site</flux:navlist.item>
@@ -93,6 +96,8 @@
     </flux:main>
 
     @fluxScripts
+    @livewireScripts
+    @stack('scripts')
 </body>
 
 </html>
