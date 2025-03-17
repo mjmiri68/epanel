@@ -17,7 +17,6 @@ class Login extends Component
         ]);
 
         if (auth()->attempt(['email' => $this->email, 'password' => $this->password])) {
-            //return redirect()->intended('/dashboard', navigate: true);
             return $this->redirect('/dashboard', navigate: true);
         } else {
             session()->flash('error', 'Invalid credentials');
