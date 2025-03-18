@@ -34,7 +34,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/categories', function () {return view('admin.categories');})->name('admin.categories');
     Route::get('/admin/dashboard', function () {return view('admin.dashboard');})->name('admin.dashboard');
     Route::get('/admin/products', function () {return view('admin.products');})->name('admin.products');
-    Route::get('/admin/product/create', function () {return view('admin.product-create');})->name('admin.product.create');
+    Route::get('/admin/users', function () {return view('admin.users');})->name('admin.users');
     Route::get('/admin/product/edit/{slug}', function () {return view('admin.product-edit');})->name('admin.product.edit');
     Route::get('/admin/orders', function () {return view('admin.orders');})->name('admin.orders');
     Route::get('/admin/order/{order_id}', function () {return view('admin.order');})->name('admin.order');

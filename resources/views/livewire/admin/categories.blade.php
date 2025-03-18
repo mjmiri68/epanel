@@ -1,8 +1,19 @@
-<div>
+<div class="container mx-auto p-4">
+    @if (session()->has('message'))
+        <div class="bg-green-200 text-green-800 p-2 rounded mb-4">
+            {{ session('message') }}
+        </div>
+    @endif
+    @if ($errors->any())
+        <div class="bg-red-200 text-red-800 p-2 rounded mb-4">
+            {{ $errors->first() }}
+        </div>
+    @endif
     <div class="p-6">
         <h2 class="text-xl font-bold mb-4">Categories Mangement</h2>
         <div class="mb-4">
-            <input type="text" wire:model="name" placeholder="Name" class="border p-2 rounded w-1/3">
+            <input type="text" wire:model="name" placeholder="Name"
+                class="mt-1 block border border-gray-300 rounded-md p-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 w-1/3">
             @error('name')
                 <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
             @enderror
@@ -16,18 +27,8 @@
                 </button>
             @endif
         </div>
-        @if (session()->has('message'))
-            <div class="bg-green-200 text-green-800 p-2 rounded mb-4">
-                {{ session('message') }}
-            </div>
-        @endif
-        @if ($errors->any())
-            <div class="bg-red-200 text-red-800 p-2 rounded mb-4">
-                {{ $errors->first() }}
-            </div>
-        @endif
         <table class="w-full border-collapse border border-gray-200">
-            <thead>
+             <thead>
                 <tr class="bg-gray-100">
                     <th class="border border-gray-300 p-2">#</th>
                     <th class="border border-gray-300 p-2">Name</th>

@@ -1,14 +1,14 @@
-<div>
+<div class="container mx-auto p-4">
     @if (session()->has('message'))
-        <div class="bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3" role="alert">
-            <p class="font-bold">Success</p>
-            <p class="text-sm">{{ session('message') }}</p>
+        <div class="bg-green-200 text-green-800 p-2 rounded mb-4">
+            {{ session('message') }}
         </div>
     @endif
-
-    <div class="mb-3">
-        <button wire:click="create" class="btn btn-primary">Add Product</button>
-    </div>
+    @if ($errors->any())
+        <div class="bg-red-200 text-red-800 p-2 rounded mb-4">
+            {{ $errors->first() }}
+        </div>
+    @endif
 
     @if ($isEdit)
         <h3>Edit Product</h3>
@@ -78,24 +78,24 @@
     </form>
 
     <h3 class="mt-6 text-xl font-semibold">Product List</h3>
-    <table class="min-w-full mt-4 table-auto border-collapse">
+    <table class="w-full border-collapse border border-gray-200">
         <thead>
-            <tr class="bg-gray-100 text-left text-sm text-gray-600">
-                <th class="px-4 py-2">Name</th>
-                <th class="px-4 py-2">Slug</th>
-                <th class="px-4 py-2">Price</th>
-                <th class="px-4 py-2">Category</th>
-                <th class="px-4 py-2">Actions</th>
+            <tr class="bg-gray-100">
+                <th class="border border-gray-300 p-2">Name</th>
+                <th class="border border-gray-300 p-2">Slug</th>
+                <th class="border border-gray-300 p-2">Price</th>
+                <th class="border border-gray-300 p-2">Category</th>
+                <th class="border border-gray-300 p-2">Actions</th>
             </tr>
         </thead>
         <tbody class="text-sm">
             @foreach ($products as $product)
-                <tr class="border-t hover:bg-gray-50">
-                    <td class="px-4 py-2">{{ $product->name }}</td>
-                    <td class="px-4 py-2">{{ $product->slug }}</td>
-                    <td class="px-4 py-2">{{ $product->price }}</td>
-                    <td class="px-4 py-2">{{ $product->category->name }}</td>
-                    <td class="px-4 py-2">
+                <tr>
+                    <td class="border border-gray-300 p-2">{{ $product->name }}</td>
+                    <td class="border border-gray-300 p-2">{{ $product->slug }}</td>
+                    <td class="border border-gray-300 p-2">{{ $product->price }}</td>
+                    <td class="border border-gray-300 p-2">{{ $product->category->name }}</td>
+                    <td class="border border-gray-300 p-2">
                         <button wire:click="edit({{ $product->id }})"
                             class="bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600 transition duration-200">Edit</button>
                         <button wire:click="delete({{ $product->id }})"
