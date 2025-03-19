@@ -38,7 +38,7 @@ class Users extends Component
         $users = User::where('name', 'like', "%{$this->search}%")
             ->orWhere('email', 'like', "%{$this->search}%")
             ->orderBy('id', 'desc')
-            ->paginate(10);
+            ->paginate(20);
 
         return view('livewire.admin.users', compact('users'));
     }

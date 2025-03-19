@@ -13,7 +13,7 @@ class Categories extends Component
 
     public function render()
     {
-        $this->categories = Category::all();
+        $this->categories = Category::paginate(20);
         return view('livewire.admin.categories', [
             'isEditing' => $this->isEditing,
         ]);

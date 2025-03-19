@@ -21,7 +21,7 @@ class Products extends Component
 
     public function mount()
     {
-        $this->products = Product::all();
+        $this->products = Product::paginate(20);
     }
 
     public function render()
