@@ -5,11 +5,13 @@ namespace App\Livewire\Admin;
 use Livewire\Component;
 use App\Models\Product;
 use App\Models\Category;
+use Livewire\WithPagination;
 
 class Products extends Component
 {
-    public $products, $name, $slug, $description, $price, $category_id, $product_id;
+    public $name, $slug, $description, $price, $category_id, $product_id;
     public $isEdit = false; // Flag for edit mode
+    use WithPagination;
 
     protected $rules = [
         'name' => 'required|string|max:255',
@@ -19,14 +21,16 @@ class Products extends Component
         'category_id' => 'required|exists:categories,id',
     ];
 
-    public function mount()
-    {
-        $this->products = Product::paginate(20);
-    }
+    // public function mount()
+    // {
+    //     $this->products = Product::paginate(20);
+    // }
 
     public function render()
     {
+        $products = Product::paginate(20);
         return view('livewire.admin.products', [
+            'products' => $products,
             'categories' => Category::all(),
         ]);
     }
@@ -51,7 +55,7 @@ class Products extends Component
         ]);
 
         session()->flash('message', 'Product successfully created.');
-        $this->mount(); // Reload products
+        //$this->mount();
         $this->resetFields();
     }
 

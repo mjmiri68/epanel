@@ -28,29 +28,25 @@
             @endif
         </div>
         <table class="w-full border-collapse border border-gray-200">
-             <thead>
-                <tr class="bg-gray-100">
-                    <th class="border border-gray-300 p-2">#</th>
-                    <th class="border border-gray-300 p-2">Name</th>
-                    <th class="border border-gray-300 p-2">Slug</th>
-                    <th class="border border-gray-300 p-2">Action</th>
+            @if ($categories && $categories->count() > 0)
+            @foreach ($categories as $category)
+                <tr>
+                    <td class="border border-gray-300 p-2">{{ $category->id }}</td>
+                    <td class="border border-gray-300 p-2">{{ $category->name }}</td>
+                    <td class="border border-gray-300 p-2">{{ $category->slug }}</td>
+                    <td class="border border-gray-300 p-2">
+                        <button wire:click="edit({{ $category->id }})" class="bg-yellow-500 text-white p-1 rounded">Edit</button>
+                        <button onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click="delete({{ $category->id }})"
+                            class="bg-red-500 text-white p-1 rounded">Delete</button>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach ($categories as $category)
-                    <tr>
-                        <td class="border border-gray-300 p-2">{{ $category->id }}</td>
-                        <td class="border border-gray-300 p-2">{{ $category->name }}</td>
-                        <td class="border border-gray-300 p-2">{{ $category->slug }}</td>
-                        <td class="border border-gray-300 p-2">
-                            <button wire:click="edit({{ $category->id }})"
-                                class="bg-yellow-500 text-white p-1 rounded">Edit</button>
-                            <button wire:confirm="Are you sure?" wire:click="delete({{ $category->id }})"
-                                class="bg-red-500 text-white p-1 rounded">Delete</button>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
+            @endforeach
+        @else
+            <tr>
+                <td colspan="4" class="border border-gray-300 p-2 text-center text-gray-500">No categories found.</td>
+            </tr>
+        @endif
+        
         </table>
         {{ $categories->links() }}
     </div>

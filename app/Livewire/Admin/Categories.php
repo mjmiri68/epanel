@@ -8,13 +8,14 @@ use App\Models\Category;
 class Categories extends Component
 {
     public $isEditing = false;
-    public $categories, $name, $categoryId;
+    public $name, $categoryId;
     protected $listeners = ['deleteCategory'];
 
     public function render()
     {
-        $this->categories = Category::paginate(20);
+        $categories = Category::paginate(20);
         return view('livewire.admin.categories', [
+            'categories' => $categories,
             'isEditing' => $this->isEditing,
         ]);
     }
