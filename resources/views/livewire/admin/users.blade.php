@@ -43,9 +43,9 @@
             @endforeach
         </tbody>
     </table>
-
-    {{ $users->links() }}
-
+    <div class="float-right mt-5 content-between">
+        {{ $users->links() }}
+    </div>
     @if ($showModal)
         <div class="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
             <div class="bg-white p-6 rounded-lg w-1/3">

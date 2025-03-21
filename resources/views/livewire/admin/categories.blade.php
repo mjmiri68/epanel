@@ -48,7 +48,9 @@
         @endif
         
         </table>
-        {{ $categories->links() }}
+        <div class="float-right mt-5 content-between">
+            {{ $categories->links() }}
+        </div>
     </div>
 
 </div>

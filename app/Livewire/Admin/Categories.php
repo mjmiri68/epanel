@@ -4,12 +4,14 @@ namespace App\Livewire\Admin;
 
 use Livewire\Component;
 use App\Models\Category;
+use Livewire\WithPagination;
 
 class Categories extends Component
 {
     public $isEditing = false;
     public $name, $categoryId;
     protected $listeners = ['deleteCategory'];
+    use WithPagination;
 
     public function render()
     {
