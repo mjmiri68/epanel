@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Views\LinkColumn;
 use App\Models\Product;
 
 class ProductsTable extends DataTableComponent
@@ -30,6 +31,9 @@ class ProductsTable extends DataTableComponent
 
             Column::make('Quantity', 'stock')
                 ->sortable(),
+                
+            Column::make('Action','id')
+                ->format(fn($value, $row, Column $column) => view('components.add-to-cart', ['id' => $row->id]))
         ];
     }
 

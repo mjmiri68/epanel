@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,10 +23,20 @@ Route::get('/email-verified', function () {return view('email-verified');})->nam
 Route::middleware('auth')->group(function () {
     Route::get('/products', function () {return view('user.products');})->name('products');
     Route::get('/product/{slug}', function () {return view('product');})->name('product');
-    Route::get('/cart', function () {return view('cart');})->name('cart');
+    Route::get('/cart', function () {
+        $cart = session()->get('cart', []);
+        return view('user.cart', compact('cart'));
+    })->name('cart.view');
     Route::get('/checkout', function () {return view('checkout');})->name('checkout');
     Route::get('/order-confirmation', function () {return view('order-confirmation');})->name('order-confirmation');
     Route::get('/dashboard', function () {return view('user.dashboard');})->name('dashboard');
+    Route::post('/cart/add', function (Request $request) {
+        $cart = session()->get('cart', []);
+        $cart[] = $request->input('product_id');
+        session()->put('cart', $cart);
+        
+        return redirect()->route('cart.view');
+    })->name('cart.add');
 });
 
 // Admin
