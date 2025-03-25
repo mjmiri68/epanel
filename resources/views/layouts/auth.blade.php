@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Simple CMS" />
-    <meta name="author" content="Sheikh Heera" />
+    <meta name="description" content="Simple Panel" />
+    <meta name="author" content="Mohammad javad Miri" />
     <link rel="shortcut icon" href={{ asset('favicon.png') }} />
 
     <title>{{$page_title ?? 'Miri Panel'}}</title>
