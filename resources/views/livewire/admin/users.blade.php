@@ -18,7 +18,7 @@
 
     <table class="w-full border-collapse border border-gray-200">
         <thead>
-            <tr class="bg-gray-100">
+            <tr class="bg-gray-100 dark:text-gray-900">
                 <th class="border border-gray-300 p-2">Name</th>
                 <th class="border border-gray-300 p-2">Email</th>
                 <th class="border border-gray-300 p-2">Admin</th>

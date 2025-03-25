@@ -19,7 +19,7 @@
     <form wire:submit.prevent="{{ $isEdit ? 'update' : 'store' }}" class="space-y-4">
         <div class="flex space-x-4">
             <div class="flex-1">
-                <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Name</label>
                 <input type="text" id="name" wire:model="name" placeholder="GamePass 1 month"
                     class="mt-1 block w-full border border-gray-300 rounded-md p-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required>
@@ -28,7 +28,7 @@
                 @enderror
             </div>
             <div class="flex-1">
-                <label for="slug" class="block text-sm font-medium text-gray-700">Slug</label>
+                <label for="slug" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Slug</label>
                 <input type="text" id="slug" wire:model="slug" placeholder="GamePass-1-month"
                     class="mt-1 block w-full border border-gray-300 rounded-md p-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required>
@@ -37,7 +37,7 @@
                 @enderror
             </div>
             <div class="flex-1">
-                <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
+                <label for="price" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Price</label>
                 <input type="number" id="price" wire:model="price" placeholder="1.5"
                     class="mt-1 block w-full border border-gray-300 rounded-md p-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required>
@@ -48,7 +48,7 @@
         </div>
 
         <div>
-            <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+            <label for="description" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Description</label>
             <textarea id="description" wire:model="description"
                 class="mt-1 block w-full border border-gray-300 rounded-md p-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
             @error('description')
@@ -57,7 +57,7 @@
         </div>
 
         <div>
-            <label for="category_id" class="block text-sm font-medium text-gray-700">Category</label>
+            <label for="category_id" class="block text-sm font-medium text-gray-700 dark:text-gray-200">Category</label>
             <select id="category_id" wire:model="category_id"
                 class="mt-1 block w-full border border-gray-300 rounded-md p-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 required>
@@ -80,7 +80,7 @@
     <h3 class="mt-6 text-xl font-semibold">Product List</h3>
     <table class="w-full border-collapse border border-gray-200">
         <thead>
-            <tr class="bg-gray-100">
+            <tr class="bg-gray-100 dark:text-gray-900">
                 <th class="border border-gray-300 p-2">Name</th>
                 <th class="border border-gray-300 p-2">Slug</th>
                 <th class="border border-gray-300 p-2">Price</th>

@@ -30,32 +30,19 @@
             <flux:navlist.item icon="inbox" badge="12" href="{{ url('admin/users') }}" wire:navigate wire:current="font-bold text-zinc-800">User</flux:navlist.item>
             <flux:navlist.item icon="inbox" badge="12" href="{{ url('admin/categories') }}" wire:navigate wire:current="font-bold text-zinc-800">Categories</flux:navlist.item>
             <flux:navlist.item icon="inbox" badge="12" href="{{ url('admin/products') }}" wire:navigate wire:current="font-bold text-zinc-800">Products</flux:navlist.item>
-
-            <flux:navlist.group expandable heading="Favorites" class="hidden lg:grid">
-                <flux:navlist.item href="#">Marketing site</flux:navlist.item>
-                <flux:navlist.item href="#">Android app</flux:navlist.item>
-                <flux:navlist.item href="#">Brand guidelines</flux:navlist.item>
-            </flux:navlist.group>
         </flux:navlist>
 
         <flux:spacer />
 
         <flux:navlist variant="outline">
             <flux:navlist.item icon="cog-6-tooth" href="#">Settings</flux:navlist.item>
-            <flux:navlist.item icon="information-circle" href="#">Help</flux:navlist.item>
         </flux:navlist>
 
         <flux:dropdown position="top" align="start" class="max-lg:hidden">
-            <flux:profile avatar="https://fluxui.dev/img/demo/user.png" name="Olivia Martin" />
-
+            @if(auth()->check())
+                <flux:profile avatar="https://fluxui.dev/img/demo/user.png" name="{{ auth()->user()->name }}" />
+            @endif
             <flux:menu>
-                <flux:menu.radio.group>
-                    <flux:menu.radio checked>Olivia Martin</flux:menu.radio>
-                    <flux:menu.radio>Truly Delta</flux:menu.radio>
-                </flux:menu.radio.group>
-
-                <flux:menu.separator />
-
                 <flux:menu.item icon="arrow-right-start-on-rectangle">Logout</flux:menu.item>
             </flux:menu>
         </flux:dropdown>
@@ -72,8 +59,7 @@
 
                 <flux:menu>
                     <flux:menu.radio.group>
-                        <flux:menu.radio checked>Olivia Martin</flux:menu.radio>
-                        <flux:menu.radio>Truly Delta</flux:menu.radio>
+
                     </flux:menu.radio.group>
 
                     <flux:menu.separator />
@@ -83,12 +69,12 @@
             </flux:dropdown>
         </flux:navbar>
 
-        <flux:navbar scrollable>
+        {{-- <flux:navbar scrollable>
             <flux:navbar.item href="#" current>Dashboard</flux:navbar.item>
             <flux:navbar.item badge="32" href="#">Orders</flux:navbar.item>
             <flux:navbar.item href="#">Catalog</flux:navbar.item>
             <flux:navbar.item href="#">Configuration</flux:navbar.item>
-        </flux:navbar>
+        </flux:navbar> --}}
     </flux:header>
 
     <flux:main>

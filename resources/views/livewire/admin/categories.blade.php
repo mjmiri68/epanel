@@ -28,10 +28,16 @@
             @endif
         </div>
         <table class="w-full border-collapse border border-gray-200">
+            <thead>
+                <tr class="bg-gray-100 dark:text-gray-900">
+                    <th class="border border-gray-300 p-2">Name</th>
+                    <th class="border border-gray-300 p-2">Slug</th>
+                    <th class="border border-gray-300 p-2">Actions</th>
+                </tr>
+            </thead>
             @if ($categories && $categories->count() > 0)
             @foreach ($categories as $category)
                 <tr>
-                    <td class="border border-gray-300 p-2">{{ $category->id }}</td>
                     <td class="border border-gray-300 p-2">{{ $category->name }}</td>
                     <td class="border border-gray-300 p-2">{{ $category->slug }}</td>
                     <td class="border border-gray-300 p-2">
@@ -46,7 +52,7 @@
                 <td colspan="4" class="border border-gray-300 p-2 text-center text-gray-500">No categories found.</td>
             </tr>
         @endif
-        
+
         </table>
         <div class="float-right mt-5 content-between">
             {{ $categories->links() }}
