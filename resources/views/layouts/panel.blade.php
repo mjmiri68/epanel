@@ -43,12 +43,12 @@
         </flux:navlist>
 
         <flux:dropdown position="top" align="start" class="max-lg:hidden">
-            <flux:profile avatar="https://fluxui.dev/img/demo/user.png" name="Olivia Martin" />
-
+            @if(auth()->check())
+                <flux:profile avatar="https://fluxui.dev/img/demo/user.png" name="{{ auth()->user()->name }}" />
+            @endif
             <flux:menu>
                 <flux:menu.radio.group>
-                    <flux:menu.radio checked>Olivia Martin</flux:menu.radio>
-                    <flux:menu.radio>Truly Delta</flux:menu.radio>
+                    <flux:menu.radio checked>Profile</flux:menu.radio>
                 </flux:menu.radio.group>
 
                 <flux:menu.separator />
