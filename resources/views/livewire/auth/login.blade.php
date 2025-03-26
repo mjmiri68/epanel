@@ -60,16 +60,14 @@
         <input class="hidden" id="recaptcha" value="0">
         <button
             class="lqd-btn group inline-flex items-center justify-center gap-1.5 font-medium rounded-full transition-all hover:-translate-y-0.5 hover:shadow-xl lqd-btn-primary bg-indigo-600 text-white hover:bg-indigo-500 focus-visible:bg-indigo-700 focus-visible:shadow-indigo-300/10 px-5 py-3"
-            id="LoginFormButton" type="submit">
+            id="LoginFormButton" type="submit" wire:loading.attr="disabled" wire:loading.class="opacity-90">
             Sign in
         </button>
         <div class="text-gray-600 dark:text-gray-400">
             By proceeding, you acknowledge and accept our
-            <a class="font-medium text-indigo-600 underline" href="/terms" target="_blank">Terms and
-                Conditions</a>
+            <a class="font-medium text-indigo-600 underline" href="/terms" target="_blank">Terms and Conditions</a>
             and
-            <a class="font-medium text-indigo-600 underline" href="/privacy-policy" target="_blank">Privacy
-                Policy</a>.
+            <a class="font-medium text-indigo-600 underline" href="/privacy-policy" target="_blank">Privacy Policy</a>.
         </div>
     </form>
 </div>
