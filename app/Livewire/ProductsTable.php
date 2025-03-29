@@ -32,8 +32,8 @@ class ProductsTable extends DataTableComponent
             Column::make('Quantity', 'stock')
                 ->sortable(),
 
-            Column::make('Action','id')
-                ->format(fn($value, $row, Column $column) => view('user.cart', ['id' => $row->id]))
+            Column::make('Actions', 'id')
+                ->format(fn($value, $row, Column $column) => view('components.cart', ['id' => $row->id]))
         ];
     }
 

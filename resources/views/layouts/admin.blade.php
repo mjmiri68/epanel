@@ -27,9 +27,9 @@
 
         <flux:navlist variant="outline">
             <flux:navlist.item icon="home" href="{{ url('admin/dashboard') }}" wire:navigate current wire:current="font-bold text-zinc-800">Home</flux:navlist.item>
-            <flux:navlist.item icon="inbox" badge="12" href="{{ url('admin/users') }}" wire:navigate wire:current="font-bold text-zinc-800">User</flux:navlist.item>
-            <flux:navlist.item icon="inbox" badge="12" href="{{ url('admin/categories') }}" wire:navigate wire:current="font-bold text-zinc-800">Categories</flux:navlist.item>
-            <flux:navlist.item icon="inbox" badge="12" href="{{ url('admin/products') }}" wire:navigate wire:current="font-bold text-zinc-800">Products</flux:navlist.item>
+            <flux:navlist.item icon="inbox" badge="{{ App\Models\User::count() }}" href="{{ url('admin/users') }}" wire:navigate wire:current="font-bold text-zinc-800">User</flux:navlist.item>
+            <flux:navlist.item icon="inbox" badge="{{ App\Models\Category::count() }}" href="{{ url('admin/categories') }}" wire:navigate wire:current="font-bold text-zinc-800">Categories</flux:navlist.item>
+            <flux:navlist.item icon="inbox" badge="{{ App\Models\Product::count() }}" href="{{ url('admin/products') }}" wire:navigate wire:current="font-bold text-zinc-800">Products</flux:navlist.item>
         </flux:navlist>
 
         <flux:spacer />

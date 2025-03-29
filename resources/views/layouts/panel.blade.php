@@ -26,7 +26,7 @@
 
         <flux:navlist variant="outline">
             <flux:navlist.item icon="home" href="{{ url('dashboard') }}" wire:navigate current wire:current="font-bold text-zinc-800">Home</flux:navlist.item>
-            <flux:navlist.item icon="inbox" badge="12" href="{{ url('products') }}" wire:navigate wire:current="font-bold text-zinc-800">Products</flux:navlist.item>
+            <flux:navlist.item icon="inbox" href="{{ url('products') }}" wire:navigate wire:current="font-bold text-zinc-800">Products</flux:navlist.item>
 
             <flux:navlist.group expandable heading="Favorites" class="hidden lg:grid">
                 <flux:navlist.item href="#">Marketing site</flux:navlist.item>
