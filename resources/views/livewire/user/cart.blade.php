@@ -5,15 +5,15 @@
         @if ($cartItems->isEmpty())
             <p>Your cart is empty.</p>
         @else
-            <table class="min-w-full bg-white border border-gray-200 text-center dark:bg-gray-700 dark:border-gray-700">
-                <thead class="dark:bg-gray-800 dark:border-gray-700">
+            <table class="min-w-full bg-white shadow overflow-y-auto border-b border-gray-400 dark:border-gray-700 sm:rounded-lg rounded-lg">
+                <thead class="dark:bg-gray-800 dark:border-gray-700 text-gray-500 dark:text-gray-400 ">
                     <tr>
                         <th class="py-2 px-4 ">Product</th>
                         <th class="py-2 px-4 ">Price</th>
                         <th class="py-2 px-4 ">Actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="dark:bg-gray-700 dark:border-gray-700 text-gray-500 dark:text-gray-400 text-center">
                     @foreach ($cartItems as $item)
                         <tr>
                             <td class="py-2 px-4 ">{{ $item->name }}</td>
