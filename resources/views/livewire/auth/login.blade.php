@@ -1,10 +1,10 @@
 <div>
     @if (session()->has('success'))
-        <div class="alert alert-success">
+        <div class="alert text-green-600">
             {{ session('success') }}
         </div>
     @elseif (session()->has('error'))
-        <div class="alert alert-danger">
+        <div class="alert text-red-600">
             {{ session('error') }}
         </div>
     @endif
